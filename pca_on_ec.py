@@ -30,6 +30,17 @@ plt.xlabel('Principal Component')
 plt.title('Scree Plot')
 plt.show()
 
+pca_df = pd.DataFrame(pca_data, columns=labels)
+
+plt.scatter(pca_df.PC1, pca_df.PC2)
+plt.title(' PCA Graph')
+plt.xlabel('PC1 - {0}%'.format(per_var[0]))
+plt.ylabel('PC2 - {0}%'.format(per_var[1]))
+ 
+for sample in pca_df.index:
+    plt.annotate(sample, (pca_df.PC1.loc[sample], pca_df.PC2.loc[sample]))
+ 
+plt.show()
 
 
 
